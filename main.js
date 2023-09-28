@@ -28,7 +28,7 @@ const client = new Client({
   ],
 });
 
-// This will run when the bot is started and makes sure that all commands are loaded
+// This will run when the bot is started and make sure that all commands are loaded
 client.once(Events.ClientReady, (c) => {
   console.log(`Logged in as ${c.user.tag}`);
   client.guilds.cache.forEach((guild) => {
@@ -66,8 +66,8 @@ pingCommand.toJSON();
 
 /* 
   The commandName is the name set above and can be anything you want.
-  You do not need multiple "Client.on" you can just continue to add if statments into this, however
-  you should create you function and call it inside the if instead of filling it with logic 
+  You do not need multiple "Client.on" you can just continue to add if statements into this, however
+  you should create your function and call it inside the if instead of filling it with logic 
 */
 
 client.on("interactionCreate", (interaction) => {
@@ -83,7 +83,7 @@ client.on("interactionCreate", (interaction) => {
 
   /* 
     You need to put all commands into the "commands" variable for them to be picked up and added to the server.
-    This will be what ever you called the new slashcommandbuilder and changed to json. line 63
+    This will be whatever you called the new slashcommandbuilder and changed to json. line 63
 
     The "try" will send the content of "commands" to the guilds and attempt to add them using the client id and guild id
     After this we use the token to login 
