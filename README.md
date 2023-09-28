@@ -1,3 +1,4 @@
+
 # DiscordBot_Basics
 
 A guide to discord bot basics
@@ -35,3 +36,39 @@ Running
 ```bash
     node main.js
 ```
+
+
+## Examples
+
+```bash
+    client.on("messageCreate", (message) => {
+    })
+```
+```bash
+    client.on("messageUpdate", (message) => {
+    })
+```
+
+#### To stop a bot from triggering logic
+```bash
+    if (message.author.bot) return;
+```
+Needed when using messageCreate
+
+#### Basic embeds
+```bash 
+    interaction.reply({
+    content: "",
+    tts: false,
+    embeds: [
+      {
+        type: "rich",
+        title: `Example `,
+        description: message,
+        color: 0xff0000,
+      },
+    ],
+  ephemeral: true
+});
+```
+The  ```ephemeral: true``` means that only the person enacting the command can see the resulting reply the bot sends
