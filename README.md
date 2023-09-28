@@ -1,2 +1,2 @@
 # DiscordBot_Basics
-A guide to discord bot basics  
+A guide to discord bot basics
