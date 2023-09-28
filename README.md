@@ -25,7 +25,7 @@ Second we need to invite the bot to a test server:
 
 
 
-## Dependency Installation & Running
+## Dependency Installation & Running:
 
 Install node modules
 
@@ -36,6 +36,7 @@ Running
 ```bash
     node main.js
 ```
+
 
 
 ## Examples
@@ -49,13 +50,13 @@ Running
     })
 ```
 
-#### To stop a bot from triggering logic
+#### | To stop a bot from triggering logic |
 ```bash
     if (message.author.bot) return;
 ```
 Needed when using messageCreate
 
-#### Basic embeds
+#### | Basic embeds |
 ```bash 
     interaction.reply({
     content: "",
@@ -72,3 +73,50 @@ Needed when using messageCreate
 });
 ```
 The  ```ephemeral: true``` means that only the person enacting the command can see the resulting reply the bot sends
+
+### Command builder Examples:
+#### | normal string options |
+```bash
+    const exampleCommand = new SlashCommandBuilder()
+        .setName("name")
+        .setDescription("description")
+        .addStringOption((option) =>
+            option
+            .setName("option_1")
+            .setDescription("description of option 1")
+            .setRequired(true)
+        )
+        .addStringOption((option) =>
+            option
+            .setName("option_2")
+            .setDescription("description of option 2")
+            .setRequired(true)
+        );
+    exampleCommand.toJSON();
+```
+#### | channel options | 
+```bash
+    const exampleCommand = new SlashCommandBuilder()
+    .setName("name")
+    .setDescription("description")
+    .addChannelOption((option) =>
+        option
+        .setName("channel_options")
+        .setDescription("will only allow you to pick a channel from the server")
+        .setRequired(true)
+    );
+    exampleCommand.toJSON();
+```
+#### | boolean option |
+```bash
+    const exampleCommand = new SlashCommandBuilder()
+    .setName("name")
+    .setDescription("description")
+    .addBooleanOption((option) =>
+        option
+        .setName("boolean_option")
+        .setDescription("can only be set to true or false")
+        .setRequired(true)
+    );
+    exampleCommand.toJSON();
+```
